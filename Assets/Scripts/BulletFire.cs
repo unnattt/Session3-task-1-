@@ -5,16 +5,26 @@ using UnityEngine;
 public class BulletFire : MonoBehaviour
 {
     public float speed;
+    public float distance;
    
 
     void Update()
-    { 
-        transform.Translate(Vector2.up * speed *Time.deltaTime);
-        GameObject.Destroy(gameObject, 0.5f* Time.deltaTime);
+    {
+        transform.Translate(Vector2.up*speed*Time.deltaTime);
+        destoryFunction();
     }
+    void destoryFunction()
+    {
+        var amtToMove = speed * Time.deltaTime;
+        transform.Translate(Vector3.forward * amtToMove);
+        if(transform.localPosition.z >= distance)
+        {
+        Destroy(gameObject);
+        }
 
-    //void AtDistanceDestory()
-   // {
+     }
+ }
 
-    //}
-}
+    
+
+    
