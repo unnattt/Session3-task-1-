@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1532404473429727911}
   - component: {fileID: 9040858566387251432}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab4d0a7d67fb4d2ea052e7d73db1c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  distance: 3
+  speed: 3
+  distance: 4
+  bullet: {fileID: 5459654879706762581}

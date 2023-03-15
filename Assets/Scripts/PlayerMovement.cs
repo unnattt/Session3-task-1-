@@ -17,47 +17,48 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovementArea();
-        MousePositionArea();
+        MouseRotationArea();
         BulletArea();
+
+
+        void MovementArea()
+        {
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.Translate(Vector2.up * speed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.Translate(Vector2.left * speed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.Translate(Vector2.down * speed * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+            }
+        }
+        void MouseRotationArea()
+        {
+            if (Input.GetButton("Fire2"))
+            {
+                Vector2 MousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
+
+                transform.up = MousePosition;
+            }
+        }
+
+        void BulletArea()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(projectile, transform.position, transform.rotation);
+            }
+        }
+
+
     }
-
-    void MovementArea()
-    {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(Vector2.up * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
-    }
-    void MousePositionArea()
-    {
-        if (Input.GetButton("Fire2"))
-        {
-            Vector2 MousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
-
-            transform.up = MousePosition;
-        }
-    }
-
-    void BulletArea()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        { 
-            Instantiate(projectile, transform.position, transform.rotation);
-        }
-    }
-
-
 }
 
