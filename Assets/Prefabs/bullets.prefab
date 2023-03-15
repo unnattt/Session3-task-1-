@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   distance: 4
-  bullet: {fileID: 5459654879706762581}
+  bullets: {fileID: 5459654879706762581}
