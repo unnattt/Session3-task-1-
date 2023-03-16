@@ -6,7 +6,7 @@ public class BulletFire : MonoBehaviour
 {
     public float speed;
     public float distance;
-    public GameObject bullets;
+   
     Vector2 initialPos;
     
     void Start()
@@ -23,7 +23,7 @@ public class BulletFire : MonoBehaviour
     void destoryFunction()
     { 
 
-        if(Vector2.Distance(initialPos,bullets.transform.position)>distance)
+        if(Vector2.Distance(initialPos, transform.position) > distance)
         {
             Destroy(gameObject);
         }
